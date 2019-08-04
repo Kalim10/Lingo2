@@ -19,10 +19,17 @@ public class Lingo2 {
             System.out.println();
             System.out.println(antwoord.charAt(0));
             poging = input.nextLine();
-            for (
-                    int x = 0; x < antwoord.length(); x++) {
-                int checken = checken(poging, x);
-                System.out.print(checken);
+
+
+            for (int i = 0; i < poging.length(); i++) {
+                try {
+                    int output = getOutput(poging.substring(i, i + 1), i);
+                    System.out.print(output);
+                } catch (IndexOutOfBoundsException e) {
+                    System.out.println("\nsorry te veel letters!");
+                    break;
+                }
+
             }
 
             counter++;
@@ -33,7 +40,7 @@ public class Lingo2 {
         );
 
         if (counter == 5) {
-            System.out.println("\nHelaas! ");
+            System.out.println("\nHelaas! te veel pogingen ");
             return false;
         } else {
             System.out.println("\nGefeliciteerd!");
@@ -41,46 +48,23 @@ public class Lingo2 {
         }
     }
 
-    private int checken(String input, Integer antwoordIndex) {
-        final char gecheckteLetter = antwoord.charAt(antwoordIndex);
-        if (
-                input.charAt(antwoordIndex) == antwoord.charAt(antwoordIndex)) {
+    private int getOutput(String inputSubstring, int inputIndex) {
+        if (inputIndex > antwoord.length()) {
+            throw new IndexOutOfBoundsException("Te veel letters");
+        }
+        String antwoordLetter = "";
+        if (inputIndex < antwoord.length()) {
+            antwoordLetter = antwoord.substring(inputIndex, inputIndex + 1);
+        }
+
+        if (antwoordLetter.equals(inputSubstring)) {
             return 1;
         }
-        if (
-                input.contains(String.valueOf(gecheckteLetter))) {
+
+        if (antwoord.contains(inputSubstring)) {
             return 3;
         }
-        if (
-                !input.contains(String.valueOf(gecheckteLetter))
-        ) {
-            return 0;
-        }
+
         return 0;
     }
 }
-
-
-//        if (
-//                input.contains(String.valueOf(gecheckteLetter)))
-//
-//            return 3;
-//       else if (
-//                input.charAt(antwoordIndex) == antwoord.charAt(antwoordIndex))
-//            return 1;
-//        return 0;
-//    }
-//        if (
-//                input.length() > antwoordIndex &&
-//                        input.charAt(antwoordIndex) == antwoord.charAt(antwoordIndex)
-//        ) {
-//            return 1;
-//        }
-//
-//        if (input.contains(String.valueOf(gecheckteLetter))) {
-//            return 3;
-//        }
-//
-//        return 0;
-//    }
-
