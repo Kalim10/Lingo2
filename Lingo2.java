@@ -20,10 +20,9 @@ public class Lingo2 {
             System.out.println(antwoord.charAt(0));
             poging = input.nextLine();
             for (
-                    int x = 0; x < antwoord.length(); x++)
-            {
-                    int checken = checken(poging, x);
-                    System.out.print(checken);
+                    int x = 0; x < antwoord.length(); x++) {
+                int checken = checken(poging, x);
+                System.out.print(checken);
             }
 
             counter++;
@@ -44,18 +43,44 @@ public class Lingo2 {
 
     private int checken(String input, Integer antwoordIndex) {
         final char gecheckteLetter = antwoord.charAt(antwoordIndex);
-
         if (
-                input.length() > antwoordIndex &&
-                        input.charAt(antwoordIndex) == antwoord.charAt(antwoordIndex)
-        ) {
+                input.charAt(antwoordIndex) == antwoord.charAt(antwoordIndex)) {
             return 1;
         }
-
-        if (input.contains(String.valueOf(gecheckteLetter))) {
+        if (
+                input.contains(String.valueOf(gecheckteLetter))) {
             return 3;
         }
-
+        if (
+                !input.contains(String.valueOf(gecheckteLetter))
+        ) {
+            return 0;
+        }
         return 0;
     }
 }
+
+
+//        if (
+//                input.contains(String.valueOf(gecheckteLetter)))
+//
+//            return 3;
+//       else if (
+//                input.charAt(antwoordIndex) == antwoord.charAt(antwoordIndex))
+//            return 1;
+//        return 0;
+//    }
+//        if (
+//                input.length() > antwoordIndex &&
+//                        input.charAt(antwoordIndex) == antwoord.charAt(antwoordIndex)
+//        ) {
+//            return 1;
+//        }
+//
+//        if (input.contains(String.valueOf(gecheckteLetter))) {
+//            return 3;
+//        }
+//
+//        return 0;
+//    }
+
