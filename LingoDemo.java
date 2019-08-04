@@ -5,7 +5,10 @@ import java.util.Scanner;
 public class LingoDemo {
     public static void main(String[] args) {
         Lingo2 lingo = new Lingo2();
-    lingo.spelen();
+
+        while(lingo.spelen()){
+            lingo = new Lingo2();
+        }
     }
 }
 
