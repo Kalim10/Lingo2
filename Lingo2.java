@@ -17,20 +17,26 @@ public class Lingo2 {
             System.out.println();
             System.out.println(antwoord.charAt(0));
             poging = input.nextLine();
-           // System.out.println(poging);
+            // System.out.println(poging);
             //System.out.println();
             for(int x=0; x<antwoord.length();x++){
-                if(poging.charAt(x) == antwoord.charAt(x)){
-                    System.out.print("1");
-                    if(poging.charAt(x) == antwoord.indexOf(x)){
-                        System.out.print("3");
-                    }
-                }
+                int checken = checken(poging.charAt(x));
+                //System.out.print(checken);
             }
-
 
         }
         while (!poging.equals(antwoord));
     }
 
+    int checken(char letter) {
+        String antwoord = woord.randomWoord();
+        for (int x = 0; x < antwoord.length(); x++) {
+            if (letter == antwoord.charAt(x)) {
+                System.out.print("1");
+                return 1;
+            }
+        }
+        System.out.print("0");
+        return 0;
+    }
 }
