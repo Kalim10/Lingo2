@@ -20,7 +20,8 @@ public class Lingo2 {
             System.out.println(antwoord.charAt(0));
             poging = input.nextLine();
             for (
-                    int x = 0; x < antwoord.length(); x++) {
+                    int x = 0; x < antwoord.length(); x++)
+            {
                     int checken = checken(poging, x);
                     System.out.print(checken);
             }
