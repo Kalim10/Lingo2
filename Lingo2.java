@@ -23,7 +23,7 @@ public class Lingo2 {
 
             for (int i = 0; i < poging.length(); i++) {
                 try {
-                    int output = getOutput(antwoord, poging, i);
+                    int output = getOutput(i);
                     System.out.print(output);
                 } catch (IndexOutOfBoundsException e) {
                     System.out.println("\nsorry te veel letters!");
@@ -48,7 +48,7 @@ public class Lingo2 {
         }
     }
 
-    private int getOutput(final String antwoord, final String poging, int pogingIndex) throws IndexOutOfBoundsException {
+    private int getOutput(int pogingIndex) throws IndexOutOfBoundsException {
         if (poging.length() > antwoord.length()) {
             throw new IndexOutOfBoundsException("Te veel letters");
         }
